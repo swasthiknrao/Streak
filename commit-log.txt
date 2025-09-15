@@ -1,2 +1,3 @@
 2025-09-02 11:10 | fix typo in readme
 2025-09-06 12:24 | update config
+2025-09-15 10:21 | add small improvements
