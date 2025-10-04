@@ -7,3 +7,4 @@
 2025-09-19 17:56 | add small improvements
 2025-09-27 16:11 | update docs
 2025-10-04 11:39 | update dependencies
+2025-10-04 13:52 | fix typo in readme
