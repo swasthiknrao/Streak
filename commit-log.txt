@@ -36,3 +36,4 @@
 2025-10-28 14:45 | bump version
 2025-10-28 16:54 | minor fix
 2025-10-31 11:24 | add small improvements
+2025-10-31 18:01 | update docs
