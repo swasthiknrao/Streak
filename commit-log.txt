@@ -35,3 +35,4 @@
 2025-10-27 16:25 | fix formatting
 2025-10-28 14:45 | bump version
 2025-10-28 16:54 | minor fix
+2025-10-31 11:24 | add small improvements
