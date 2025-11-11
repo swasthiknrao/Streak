@@ -49,3 +49,4 @@
 2025-11-05 16:20 | cleanup
 2025-11-09 15:41 | update docs
 2025-11-09 18:52 | refactor: clean up utils
+2025-11-11 10:44 | fix typo in readme
