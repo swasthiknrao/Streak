@@ -54,3 +54,4 @@
 2025-11-13 13:46 | bump version
 2025-11-13 14:10 | update config
 2025-11-13 14:39 | minor fix
+2025-11-13 14:56 | fix typo in readme
