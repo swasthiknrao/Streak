@@ -68,3 +68,4 @@
 2025-11-18 14:45 | update dependencies
 2025-11-18 15:13 | small tweak
 2025-11-18 17:04 | update docs
+2025-11-20 12:39 | bump version
