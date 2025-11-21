@@ -74,3 +74,4 @@
 2025-11-20 17:06 | bump version
 2025-11-21 14:38 | fix formatting
 2025-11-21 16:14 | fix formatting
+2025-11-21 16:16 | fix typo in readme
