@@ -87,3 +87,4 @@
 2025-11-24 14:33 | update config
 2025-11-25 11:21 | bump version
 2025-11-25 16:11 | bump version
+2025-11-25 16:12 | fix typo in readme
