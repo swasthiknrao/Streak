@@ -130,3 +130,4 @@
 2025-12-19 16:51 | fix typo in readme
 2025-12-20 11:05 | bump version
 2025-12-20 16:20 | update dependencies
+2025-12-22 11:53 | update docs
