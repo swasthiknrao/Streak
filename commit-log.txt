@@ -161,3 +161,4 @@
 2026-01-06 11:24 | fix formatting
 2026-01-07 12:37 | fix typo in readme
 2026-01-07 13:37 | fix formatting
+2026-01-08 14:05 | update config
