@@ -178,3 +178,4 @@
 2026-01-21 15:53 | minor fix
 2026-01-23 17:01 | bump version
 2026-01-23 18:23 | add small improvements
+2026-01-24 14:11 | fix typo in readme
