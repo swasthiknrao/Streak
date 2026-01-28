@@ -183,3 +183,4 @@
 2026-01-26 13:49 | minor fix
 2026-01-26 17:30 | cleanup
 2026-01-28 13:24 | small tweak
+2026-01-28 13:50 | update config
