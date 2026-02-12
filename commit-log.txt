@@ -200,3 +200,4 @@
 2026-02-08 16:02 | fix formatting
 2026-02-11 12:10 | small tweak
 2026-02-11 12:24 | fix typo in readme
+2026-02-12 18:55 | update docs
