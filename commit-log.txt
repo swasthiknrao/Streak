@@ -207,3 +207,4 @@
 2026-02-17 11:18 | small tweak
 2026-02-17 12:37 | add small improvements
 2026-02-18 12:04 | refactor: clean up utils
+2026-02-20 10:49 | fix typo in readme
