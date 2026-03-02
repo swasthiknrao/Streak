@@ -16,12 +16,16 @@
     <section class="input-section">
       <label for="username">Your GitHub username</label>
       <div class="input-group">
-        <input type="text" id="username" placeholder="Enter username (e.g. octocat)">
+        <input type="text" id="username" placeholder="swasthiknrao" value="swasthiknrao">
         <button id="fetchBtn">Check Activity</button>
       </div>
     </section>
 
     <section class="stats-section" id="statsSection">
+      <div class="stat-card streak highlight">
+        <span class="stat-value" id="streakCount">—</span>
+        <span class="stat-label">Current streak (days)</span>
+      </div>
       <div class="stat-card">
         <span class="stat-value" id="eventCount">—</span>
         <span class="stat-label">Recent activity (7 days)</span>
@@ -29,10 +33,6 @@
       <div class="stat-card">
         <span class="stat-value" id="todayContrib">—</span>
         <span class="stat-label">Today's contributions</span>
-      </div>
-      <div class="stat-card streak">
-        <span class="stat-value" id="streakStatus">—</span>
-        <span class="stat-label">Streak status</span>
       </div>
     </section>
 
@@ -42,8 +42,13 @@
       <button id="dismissBtn" class="secondary">Dismiss for today</button>
     </section>
 
+    <section class="streak-viz" id="streakViz">
+      <h2>📊 This week</h2>
+      <div class="week-dots" id="weekDots"></div>
+    </section>
+
     <section class="tips-section">
-      <h2>💡 How to keep your streak</h2>
+      <h2>💡 Keep your streak alive</h2>
       <ul>
         <li>Commit to <code>streak-log.md</code> daily (even a small update counts)</li>
         <li>Fix typos, add docs, or update README</li>

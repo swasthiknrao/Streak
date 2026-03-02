@@ -112,9 +112,14 @@ button {
   border: 1px solid #30363d;
 }
 
-.stat-card.streak {
+.stat-card.streak,
+.stat-card.highlight {
   border-color: #238636;
-  background: rgba(35, 134, 54, 0.1);
+  background: rgba(35, 134, 54, 0.15);
+}
+
+.stat-value.on-fire {
+  color: #f0883e;
 }
 
 .stat-value {
@@ -135,11 +140,32 @@ button {
   margin-top: 0.25rem;
 }
 
+.streak-viz h2,
 .reminder-section h2,
 .tips-section h2 {
   font-size: 1rem;
   margin-bottom: 0.75rem;
   color: #e6edf3;
+}
+
+.week-dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.week-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: #21262d;
+  border: 1px solid #30363d;
+}
+
+.week-dots .dot.active {
+  background: #238636;
+  border-color: #2ea043;
+  box-shadow: 0 0 6px rgba(46, 160, 67, 0.5);
 }
 
 #reminderText {

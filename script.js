@@ -6,11 +6,12 @@ const STORAGE_KEYS = {
 
 // Load saved username and show reminder on page load
 document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('username');
   const saved = localStorage.getItem(STORAGE_KEYS.USERNAME);
-  if (saved) {
-    document.getElementById('username').value = saved;
-    fetchActivity(saved);
-  }
+  const username = saved || input.value.trim() || 'swasthiknrao';
+  input.value = username;
+  if (username) fetchActivity(username);
+  else renderWeekDots([]);
   updateReminder();
 });
 
@@ -27,42 +28,74 @@ document.getElementById('dismissBtn').addEventListener('click', () => {
   updateReminder();
 });
 
+function calcStreak(contribDates) {
+  const set = new Set(contribDates);
+  if (!set.size) return 0;
+  let streak = 0;
+  let d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  for (let i = 0; i < 365; i++) {
+    const key = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    if (set.has(key)) streak++;
+    else break;
+    d.setDate(d.getDate() - 1);
+  }
+  return streak;
+}
+
+function renderWeekDots(contribDates) {
+  const set = new Set(contribDates);
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const pad = (n) => String(n).padStart(2, '0');
+  const el = document.getElementById('weekDots');
+  el.innerHTML = '';
+  let d = new Date();
+  d.setDate(d.getDate() - 6);
+  for (let i = 0; i < 7; i++) {
+    const key = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const has = set.has(key);
+    const dot = document.createElement('span');
+    dot.className = `dot ${has ? 'active' : ''}`;
+    dot.title = `${days[d.getDay()]} ${key}${has ? ' ✓' : ''}`;
+    el.appendChild(dot);
+    d.setDate(d.getDate() + 1);
+  }
+}
+
 async function fetchActivity(username) {
-  const statsSection = document.getElementById('statsSection');
   document.getElementById('eventCount').textContent = '...';
   document.getElementById('todayContrib').textContent = '...';
-  document.getElementById('streakStatus').textContent = '...';
+  document.getElementById('streakCount').textContent = '...';
 
   try {
     const res = await fetch(`${GITHUB_API}/users/${username}/events/public?per_page=100`);
     if (!res.ok) throw new Error('User not found');
 
     const events = await res.json();
+    const contribTypes = ['PushEvent', 'IssuesEvent', 'PullRequestEvent', 'CreateEvent', 'DeleteEvent'];
+    const contribDates = events
+      .filter((e) => contribTypes.includes(e.type))
+      .map((e) => e.created_at.slice(0, 10));
+
     const now = new Date();
     const todayStr = now.toISOString().slice(0, 10);
-
     const weekAgo = new Date(now);
     weekAgo.setDate(weekAgo.getDate() - 7);
-
     const weekEvents = events.filter((e) => new Date(e.created_at) >= weekAgo);
-    const todayEvents = events.filter((e) => e.created_at.startsWith(todayStr));
-
-    // Count contribution types (PushEvent, IssuesEvent, PullRequestEvent, etc.)
-    const contribTypes = ['PushEvent', 'IssuesEvent', 'PullRequestEvent', 'CreateEvent', 'DeleteEvent'];
-    const todayContrib = todayEvents.filter((e) => contribTypes.includes(e.type)).length;
+    const todayContrib = contribDates.filter((d) => d === todayStr).length;
+    const streak = calcStreak(contribDates);
 
     document.getElementById('eventCount').textContent = weekEvents.length;
     document.getElementById('todayContrib').textContent = todayContrib;
+    document.getElementById('streakCount').textContent = streak || '0';
+    document.getElementById('streakCount').className = `stat-value ${streak > 0 ? 'on-fire' : ''}`;
 
-    if (todayContrib > 0) {
-      document.getElementById('streakStatus').textContent = '✅ On track!';
-    } else {
-      document.getElementById('streakStatus').textContent = '⚠️ Commit today!';
-    }
+    renderWeekDots(contribDates);
   } catch (err) {
     document.getElementById('eventCount').textContent = '—';
     document.getElementById('todayContrib').textContent = '—';
-    document.getElementById('streakStatus').textContent = 'Error';
+    document.getElementById('streakCount').textContent = '0';
+    renderWeekDots([]);
   }
 }
 
