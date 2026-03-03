@@ -4,7 +4,7 @@ const STORAGE_KEYS = {
   DISMISSED: 'gh-streak-dismissed',
 };
 
-// Load saved username and show reminder on page load
+// Streak helper – load saved username and show reminder on page load
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('username');
   const saved = localStorage.getItem(STORAGE_KEYS.USERNAME);
