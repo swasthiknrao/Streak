@@ -166,7 +166,7 @@ button {
 .week-dots .dot.active {
   background: #238636;
   border-color: #2ea043;
-  box-shadow: 0 0 6px rgba(46, 160, 67, 0.5);
+  box-shadow: 0 0 8px rgba(46, 160, 67, 0.6);
 }
 
 #reminderText {
@@ -186,7 +186,7 @@ button {
 }
 
 .tips-section li::before {
-  content: "→";
+  content: "▸";
   position: absolute;
   left: 0;
   color: #238636;
