@@ -34,6 +34,7 @@ function calcStreak(contribDates) {
   let streak = 0;
   let d = new Date();
   const pad = (n) => String(n).padStart(2, '0');
+  // Walk backwards from today; stop at first day with no contrib
   for (let i = 0; i < 365; i++) {
     const key = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
     if (set.has(key)) streak++;
