@@ -19,7 +19,7 @@ A simple tool to help you build and maintain your GitHub contribution streak.
 
 ## Quick tips for streaks
 
-- Update `streak-log.md` every day – even a one-line edit counts
+- Update `streak-log.md` every day – even a one-line edit counts!
 - Push changes before midnight (in your timezone)
 - Commits, PRs, issues, and reviews all count as contributions
 
