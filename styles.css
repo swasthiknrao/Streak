@@ -121,6 +121,11 @@ button {
 
 .stat-value.on-fire {
   color: #f0883e;
+  animation: pulse-streak 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-streak {
+  50% { opacity: 0.9; }
 }
 
 .stat-value {
